@@ -1,4 +1,4 @@
-![img](https://raw.githubusercontent.com/jmv74211/Proyecto-cloud-computing/master/imagenes/logo.png)
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/imagenes/logo.png)
 
 ---
 
