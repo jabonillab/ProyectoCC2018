@@ -29,7 +29,7 @@ Los microservicios se comunicaran por medio del Broker **[rabbitmq](https://www.
 
 Despliegue: https://jabonillabproyectocc2018.herokuapp.com/
 
-El microservicio maneja su propia base de datos **[Postgresql](https://www.postgresql.org/)** se usa el ORM **[Sqlalchemy](https://www.sqlalchemy.org/)** para el manejo de los objetos en la base de datos.
+El Microservicio maneja su propia base de datos **[Postgresql](https://www.postgresql.org/)** se usa el ORM **[Sqlalchemy](https://www.sqlalchemy.org/)** para el manejo de los objetos en la base de datos.
 
 El despliegue  se en heroku de forma automática, luego de pasar los test en travis los cuales usan una base de datos diferente a la de producción.  
 
