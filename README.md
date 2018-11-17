@@ -18,12 +18,20 @@ Para llevar a cabo el sistema se requiere de la participación de los establecim
 Con el objetivo de minimizar costos de computo y permitir que la aplicación en versiones futuras crezca fácilmente agregando microservicios se opta por usar la arquitectura basada en **[microservicios](https://microservices.io/)**. Compuesta por los siguientes microservicios:
 - Registro de usuarios
 - Login
-- Almacenamiento de productos geolocalizados usando **[Mariadb](https://mariadb.org/)** y **[MySQLdb](https://pypi.org/project/MySQL-python/)** para hacer la conexión
+- Almacenamiento de productos geolocalizados usando **[Postgresql](https://www.postgresql.org/)**
 - Buscador de productos basado en geolocalización y preferencias del usuario 
 - Administración de Inventario
 
 
 Los microservicios se comunicaran por medio del Broker **[rabbitmq](https://www.rabbitmq.com/)** usando **[REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)**, para hacer el desarrollo se usará **[python](https://www.python.org/)** y el framework **[flask](http://flask.pocoo.org/)** 
+
+### Despliegue
+
+Despliegue: https://jabonillabproyectocc2018.herokuapp.com/
+
+El microservicio maneja su propia base de datos **[Postgresql](https://www.postgresql.org/)** se usa el ORM **[Sqlalchemy](https://www.sqlalchemy.org/)** para el manejo de los objetos en la base de datos.
+
+El despliegue  se en heroku de forma automática, luego de pasar los test en travis los cuales usan una base de datos diferente a la de producción.  
 
 ---
 Es la primer version de la descripción en el transcurso del desarrollo podrá ser modificada.
