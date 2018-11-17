@@ -39,8 +39,8 @@ def update():
 def raiz():
     return json.dumps({
    "status": "OK",
-   "ejemplo": { "ruta": "/producto1/37.204970,-3.602659",
-                "valor": [{"nombre": "producto1", "posicion": "37.204970,-3.602659"}]
+   "ejemplo": { "ruta": "/productos",
+                "valor": [{"nombre": "producto3", "id": 1, "ubicacion": "ubicacion3"}]
               }
 })
 
