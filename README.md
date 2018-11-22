@@ -1,4 +1,4 @@
-![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/imagenes/logo.png)
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/logo.png)
 
 ---
 
