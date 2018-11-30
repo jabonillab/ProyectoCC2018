@@ -25,13 +25,54 @@ Con el objetivo de minimizar costos de computo y permitir que la aplicación en 
 
 Los microservicios se comunicaran por medio del Broker **[rabbitmq](https://www.rabbitmq.com/)** usando **[REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)**, para hacer el desarrollo se usará **[python](https://www.python.org/)** y el framework **[flask](http://flask.pocoo.org/)** 
 
+
+
+## Pruebas y test
+
+Las pruebas se hacen con [Unittest](https://docs.python.org/3/library/unittest.html) intentando cubrir la mayor cantidad de código posible, así al hacer una modificación los test serán ejecutados en [Travis](https://docs.travis-ci.com/) y notificará en caso de que se presente un problema
+
+
 ### Despliegue
 
 Despliegue: https://jabonillabproyectocc2018.herokuapp.com/
 
 El Microservicio maneja su propia base de datos **[Postgresql](https://www.postgresql.org/)** se usa el ORM **[Sqlalchemy](https://www.sqlalchemy.org/)** para el manejo de los objetos en la base de datos.
 
-El despliegue  se en heroku de forma automática, luego de pasar los test en travis los cuales usan una base de datos diferente a la de producción.  
+El despliegue  se en heroku de forma automática, luego de pasar los test en [Travis](https://docs.travis-ci.com/) los cuales usan una base de datos diferente a la de producción.
 
----
-Es la primer version de la descripción en el transcurso del desarrollo podrá ser modificada.
+Recursos disponibles:
+
+- [/](https://jabonillabproyectocc2018.herokuapp.com/) : Es la raíz en la que se muestra status:OK en caso de que este levantado el servidor.
+- [/Productos](https://jabonillabproyectocc2018.herokuapp.com/productos): Hace exactamente lo mismo que la raíz, es una prueba que realice para comprobar si podía poner el mismo recurso en más de una ruta.
+- [/nuevoproducto/< nombre >/< ubicacion >](): Usada para agregar productos al Inventario 
+  
+### Definición de la Infraestructura
+
+Tanto Heroku y Travis usan documentos de configuración para generar la infraestructura necesaria a continuación se describen los documentos principales
+
+Siguientes archivos:
+
+- [requirements.txt](https://github.com/jabonillab/ProyectoCC2018/blob/master/requirements.txt): En heroku se facilita usar Gunicorn, que es un servidor WSGI HTTP para Python y nos permite correr el servidor. 
+- [database.yml](https://github.com/jabonillab/ProyectoCC2018/blob/master/database.yml): Para poder ejecutar las pruebas es necesario crear una base de datos temporal en travis en este documento especifico las credenciales de la base de datos temporal que se creara al momento de comenzar las prubas y se destruira al terminarlas
+- [Procfile](https://github.com/jabonillab/ProyectoCC2018/blob/master/Procfile): Este docuemento se especifica a Heroku el tipo de servidor y la aplicacion que debe desplegar.
+
+### Test con Travis
+
+Se vincula la cuenta de Github con Travis como se ve en la siguiente imagen
+
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/travis.png)
+
+Cada vez que actualizamos el repositorio a partir de este momento debería de aparecer en la página web de Travis algo parecido a la siguiente imagen si todo ha salido bien.
+
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/resultTravis.png)
+
+### Vinculación con Heroku
+
+Para vincular con Heroku se puede hacer desde la interfaz en su página web.
+
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/herokuConection.png)
+
+En github nos muestra el despliegue
+
+![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/autodeploy.png)
+
