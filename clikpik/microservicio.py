@@ -13,26 +13,12 @@ class Producto(db.Model):
     nombre = db.Column(db.String(80), unique=True, nullable=False)
     ubicacion = db.Column(db.String(120), unique=True, nullable=False)
 
-#    def __repr__(self):
-#        return '<Producto %r>' % self.nombre
-
-
 @app.route('/nuevoproducto/<nombre>/<ubicacion>', methods=['POST'])
 def nuevousuario(nombre,ubicacion):
     producto = Producto(nombre=nombre, ubicacion=ubicacion)
     db.session.add(producto)
     db.session.commit()
     return "nuevousuario"
-
-
-@app.route("/update", methods=["POST"])
-def update():
-    newtitle = request.form.get("newtitle")
-    oldtitle = request.form.get("oldtitle")
-    book = Book.query.filter_by(title=oldtitle).first()
-    book.title = newtitle
-    db.session.commit()
-    return redirect("/")
 
 
 @app.route('/')
