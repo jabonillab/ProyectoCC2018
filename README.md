@@ -6,6 +6,9 @@
 [![Status](https://img.shields.io/badge/Status-Documenting-yellow.svg)](https://github.com/jabonillab/ProyectoCC2018/master/README.md)
 [![Language](https://img.shields.io/badge/language-Python-green.svg)](https://www.python.org/)
 [![Language](https://img.shields.io/badge/Microframework-Flask-brown.svg)](http://flask.pocoo.org/)
+#### Autor: Jorge Bonilla
+#### Máster en Ingeniría Informática
+#### Enlace de la documentación: https://jabonillab.github.io/ProyectoCC2018/
 
 ### Descripción
 
