@@ -1,0 +1,50 @@
+---
+- hosts: serverdss
+  sudo: yes
+  tasks:
+    - name: Instalar
+      apt: name={{item}} state=present
+      with_items:
+        - python-pip
+        - python-virtualenv
+        - python-psycopg2
+        - postgresql
+        - libpq-dev
+        - gunicorn
+
+    - name: cambiar puertos
+      command: iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 5000
+
+- hosts: serverdss
+  tasks:
+    - name: Clonar repo
+      git:
+        repo: https://github.com/jabonillab/ProyectoCC2018.git
+        dest: /home/dss2018/ProyectoCC2018
+    - name: Entorno
+      pip:
+        requirements: /home/dss2018/ProyectoCC2018/requirements.txt
+        virtualenv: /home/dss2018/ProyectoCC2018/venv
+
+- hosts: serverdss
+  become: yes
+  become_user: postgres
+  gather_facts: no
+
+  vars:
+    dbname: jorgedb
+    dbuser: postgres
+    dbpassword: 123456789
+
+  tasks:
+  - name: ensure database is created
+    postgresql_db: name={{dbname}}
+
+  - name: ensure user has access to database
+    postgresql_user: db={{dbname}} name={{dbuser}} password={{dbpassword}} priv=ALL
+
+  - name: ensure user does not have unnecessary privilege
+    postgresql_user: name={{dbuser}} role_attr_flags=NOSUPERUSER,NOCREATEDB
+
+  - name: ensure no other user can access the database
+    postgresql_privs: db={{dbname}} role=PUBLIC type=database priv=ALL state=absent

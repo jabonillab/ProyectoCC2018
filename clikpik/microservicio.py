@@ -2,7 +2,7 @@ from flask import Flask
 from os import environ
 import json
 from flask_sqlalchemy import SQLAlchemy
-app = Flask('clikpik')
+app = Flask('__name__')
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
 app.config['TESTING'] = True
 db = SQLAlchemy(app)
@@ -46,4 +46,3 @@ def productos():
 def initdb():
     db.create_all()
     return "Base de datos iniciada"
-
