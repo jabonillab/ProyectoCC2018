@@ -58,7 +58,7 @@ Con esto le estamos indicando que nuestra IP se encuentra en el grupo azure y ti
 
 El aprovisionamiento se hace de la siguiente manera
 
-El fichero de aprovisionamiento se encuentra en el directorio provision con el nombre [aprovisionamiento.yml](../provision/ansible/aprovisionamiento.yml).
+El fichero de aprovisionamiento se encuentra en el directorio provision con el nombre [aprovisionamiento.yml](https://github.com/jabonillab/ProyectoCC2018/blob/master/provision/ansible/aprovisionamiento.yml).
 
 En resumen, este fichero sigue estos pasos:
 
