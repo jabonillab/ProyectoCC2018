@@ -20,12 +20,12 @@
     - name: Clonar repo
       git:
         repo: https://github.com/jabonillab/ProyectoCC2018.git
-        dest: /home/dss2018/ProyectoCC2018
+        dest: ~/ProyectoCC2018
         force: yes
     - name: Entorno
       pip:
-        requirements: /home/dss2018/ProyectoCC2018/requirements.txt
-        virtualenv: /home/dss2018/ProyectoCC2018/venv
+        requirements: ~/ProyectoCC2018/requirements.txt
+        virtualenv: ~/ProyectoCC2018/venv
 
 - hosts: serverdss
   become: yes
