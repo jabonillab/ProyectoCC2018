@@ -16,7 +16,7 @@ class TestProductos(BaseTestCase):
         pass
 
     def test_putproducto(self):
-        result = self.client.put("/productos", data={"nombre": 'test1', "ubicacion": 'test2' })
+        result = self.client.put("/productos", data={"ubicacion":"test1","nombre":"test2"})
         self.assertEqual(result.status_code, 200)
         pass
 if __name__ == '__main__':
