@@ -79,3 +79,12 @@ En github nos muestra el despliegue
 
 ![img](https://raw.githubusercontent.com/jabonillab/ProyectoCC2018/master/docs/imagenes/autodeploy.png)
 
+## Provisionamiento
+
+En el provisionamiento se ha usado Ansible. El servicio se ha desplegado en una máquina virtual a través de la plataforma Azure.
+
+Toda la información sobre este hito se encuentra en
+
+[Hito 3](/docs/Hitotres.md)
+
+MV: 40.117.232.212
