@@ -87,6 +87,6 @@ Se ha comprobado el funcionamiento del playbook de provisionamiento del compañe
 
 Se ha creado una máquina virtual siguiendo los pasos indicados en este [enlace](https://github.com/migueldgoncalves/CCproj_1819).
 
-Se ha ejecutado el playbook de aprovisionamiento con este resultado:
+Se ha ejecutado el playbook de aprovisionamiento con este resultado :
 
 ![alt text](./imagenes/miguel.png)
