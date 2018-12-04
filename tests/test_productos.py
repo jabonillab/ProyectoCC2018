@@ -1,5 +1,5 @@
 import unittest
-
+import json
 from flask import request
 
 from tests.base import BaseTestCase
@@ -16,8 +16,13 @@ class TestProductos(BaseTestCase):
         pass
 
     def test_putproducto(self):
+        data = {
+            "ubicacion": "lat,test",
+            "nombre": "test1"
+        }
+        datos = json.dumps(data)
         headers = {'content-type': 'application/json'}
-        result = self.client.put("/productos", data={"ubicacion":"test1","nombre":"test2"}, headers=headers)
+        result = self.client.put("/productos", data=datos, headers=headers)
         self.assertEqual(result.status_code, 200)
         pass
 if __name__ == '__main__':
