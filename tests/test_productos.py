@@ -15,8 +15,8 @@ class TestProductos(BaseTestCase):
         self.assertEqual(result.status_code, 200)
         pass
 
-    def test_postproducto(self):
-        result = self.client.post("/nuevoproducto/test1/test1")
+    def test_putproducto(self):
+        result = self.client.put("/productos", data={"nombre": 'test1', "ubicacion": 'test2' })
         self.assertEqual(result.status_code, 200)
         pass
 if __name__ == '__main__':

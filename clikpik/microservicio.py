@@ -1,6 +1,7 @@
 from flask import Flask
 from os import environ
 import json
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 app = Flask('__name__')
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
@@ -31,16 +32,21 @@ def raiz():
 })
 
 
-@app.route('/productos')
+@app.route('/productos', methods=['GET','PUT', 'POST', 'DELETE'])
 def productos():
-    todo= Producto.query.all()
-    resultado = []
-    for item in todo:
-        temp = item.__dict__
-        del temp["_sa_instance_state"]
-        resultado.append(temp)
-    return json.dumps(resultado)
-
+    if request.method == 'GET':
+        todo= Producto.query.all()
+        resultado = []
+        for item in todo:
+            temp = item.__dict__
+            del temp["_sa_instance_state"]
+            resultado.append(temp)
+        return json.dumps(resultado)
+    elif request.method == 'PUT':
+        producto = Producto(nombre=request.json['nombre'], ubicacion=request.json['ubicacion'])
+        db.session.add(producto)
+        db.session.commit()
+        return "nuevousuario"
 
 @app.route('/initdb')
 def initdb():
