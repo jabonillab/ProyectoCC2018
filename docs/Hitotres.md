@@ -83,7 +83,7 @@ Lanzamos el playbook y el resultado es el siguiente:
 
 ### Comprobación compañero
 
-Se ha comprobado el funcionamiento del playbook de provisionamiento del compañero DE OLIVEIRA DIAS GONÇALVES, MIGUEL.
+Se ha comprobado el funcionamiento del playbook de provisionamiento del compañero DE OLIVEIRA DIAS GONÇALVES, MIGUEL. y mi compañero verifico mi trabajo [enlace](https://github.com/migueldgoncalves/CCproj_1819/blob/master/docs/comprobacion.md)
 
 Se ha creado una máquina virtual siguiendo los pasos indicados en este [enlace](https://github.com/migueldgoncalves/CCproj_1819).
 
