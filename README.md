@@ -83,8 +83,9 @@ En github nos muestra el despliegue
 
 En el aprovisionamiento se ha usado Ansible. El servicio se ha desplegado en una máquina virtual a través de la plataforma Azure.
 
+MV: 40.117.232.212
+
 Toda la información sobre este hito se encuentra en
 
 [Hito 3](/docs/Hitotres.md)
 
-MV: 40.117.232.212
