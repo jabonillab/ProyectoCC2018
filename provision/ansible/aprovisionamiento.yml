@@ -1,5 +1,5 @@
 ---
-- hosts: serverdss
+- hosts: azure
   sudo: yes
   tasks:
     - name: Instalar
@@ -15,7 +15,7 @@
     - name: cambiar puertos
       command: iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 5000
 
-- hosts: serverdss
+- hosts: azure
   tasks:
     - name: Clonar repo
       git:
@@ -27,7 +27,7 @@
         requirements: ~/ProyectoCC2018/requirements.txt
         virtualenv: ~/ProyectoCC2018/venv
 
-- hosts: serverdss
+- hosts: azure
   become: yes
   become_user: postgres
   gather_facts: no
