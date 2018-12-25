@@ -6,7 +6,7 @@ En este hito se automatiza la creacion de la maquina virtual usando la herramien
 ## Imagen
 
 En azure la busqueda de la imagen se puede hacer por medio de [Azuremarketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/jetware-srl.postgresql?tab=PlansAndPrice)
-esta es la unica imagen gratuita con PostgresSQL y Ubuntu por eso es la que vamos a usar.
+esta es la unica imagen gratuita con PostgresSQL  y Ubuntu por eso es la que vamos a usar.
 
 ![alt text](./imagenes/hito4-1.png)
 
