@@ -1,0 +1,39 @@
+AZURE_TENANT_ID       = ENV['AZURE_TENANT_ID']
+AZURE_CLIENT_ID       = ENV['AZURE_CLIENT_ID']
+AZURE_CLIENT_SECRET   = ENV['AZURE_CLIENT_SECRET']
+AZURE_SUBSCRIPTION_ID = ENV['AZURE_SUBSCRIPTION_ID']
+
+Vagrant.configure('2') do |ccvagrant|
+
+  ccvagrant.ssh.private_key_path = '~/.ssh/id_rsa'
+  ccvagrant.vm.box = 'azure'
+  ccvagrant.vm.define "ccvagrant" do |machine|
+
+    machine.vm.provider :azure do |azure, override|
+      azure.tenant_id       = AZURE_TENANT_ID
+      azure.client_id       = AZURE_CLIENT_ID
+      azure.client_secret   = AZURE_CLIENT_SECRET
+      azure.subscription_id = AZURE_SUBSCRIPTION_ID
+      azure.location                = 'westeurope'
+      azure.vm_name                 = 'ccvagrant'
+      azure.resource_group_name     = 'ccvagrant'
+      azure.nsg_name                = 'ccvagrant'
+      azure.vm_image_urn            = 'Canonical:UbuntuServer:18.04-LTS:latest'
+      azure.vm_size                 = 'Standard_B1s'
+      azure.vm_storage_account_type = 'Standard_LRS'
+      azure.tcp_endpoints           = [22, 80]
+
+    end
+
+  end
+
+  ccvagrant.vm.provision "ansible" do |ansible|
+      ansible.compatibility_mode = "2.0"
+      ansible.playbook = 'playbook.yml'
+  end
+
+end
+
+
+
+

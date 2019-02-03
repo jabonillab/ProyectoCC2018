@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Instalar
+      apt: name={{item}} state=present
+      with_items:
+        - python-pip
+        - python-virtualenv
+        - python-psycopg2
+        - libpq-dev
+        - gunicorn
+
+- hosts: all
+  tasks:
+    - name: Clonar repo
+      git:
+        repo: https://github.com/jabonillab/ProyectoCC2018.git
+        dest: ~/ProyectoCC2018
+        force: yes
+    - name: Entorno
+      pip:
+        requirements: ~/ProyectoCC2018/requirements.txt
+        virtualenv: ~/ProyectoCC2018/venv
+

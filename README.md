@@ -7,12 +7,12 @@
 [![Language](https://img.shields.io/badge/language-Python-green.svg)](https://www.python.org/)
 [![Language](https://img.shields.io/badge/Microframework-Flask-brown.svg)](http://flask.pocoo.org/)
 #### Autor: Jorge Bonilla
-#### Máster en Ingeniría Informática
+#### Máster en Ingeniería Informática
 #### Enlace de la documentación: https://jabonillab.github.io/ProyectoCC2018/
 
 ### Descripción
 
-El estilo de vida de la sociedad de hoy en día va muy deprisa, si además de esto, tenemos en cuenta que uno de los propósitos de las nuevas tecnologías es optimizar el tiempo de las personas, surge como proyecto el diseño de una aplicación que permita encontrar productos necesarios para el día a día de cualquier persona, como por ejemplo estudiantes o turistas. Es por eso que el objetivo de este proyecto es diseñar un sistema que permita a los usuarios buscar productos cercanos a ellos, garantizando la disponibilidad de los mismos. 
+El estilo de vida de la sociedad de hoy en día va muy deprisa, si además de esto, tenemos en cuenta que uno de los propósitos de las nuevas tecnologías es optimizar el tiempo de las personas, surge como proyecto el diseño de una aplicación que permita encontrar productos necesarios para el día a día de cualquier persona, como por ejemplo estudiantes o turistas. Es por eso que el objetivo de este proyecto es diseñar un sistema que permita a los usuarios buscar productos cercanos a ellos, garantizando la disponibilidad de los mismos.
 
 Para llevar a cabo el sistema se requiere de la participación de los establecimientos comerciales, dando una mayor relevancia a los comercios pequeños. Para incentivar la participación de los establecimientos se les ofrecerá la funcionalidad de manejo del inventario, al igual que publicidad para su marca, siendo por tanto un proyecto beneficioso para las partes. El usuario va tener la posibilidad de consultar en tiempo real el lugar donde puede adquirir productos específicos evitando perder tiempo con búsquedas convencionales.
 
@@ -20,11 +20,11 @@ Para llevar a cabo el sistema se requiere de la participación de los establecim
 
 Con el objetivo de minimizar costos de computo y permitir que la aplicación en versiones futuras crezca fácilmente agregando microservicios se opta por usar la arquitectura basada en **[microservicios](https://microservices.io/)**. Compuesta por los siguientes microservicios:
 
-- Administracion de productos con el almacenamiento geolocalizado usando **[Postgresql](https://www.postgresql.org/)**
-- Administracion de usuarios
-- Gestion de Promociones
+- Administración de productos con el almacenamiento geolocalizado usando **[Postgresql](https://www.postgresql.org/)**
+- Administración de usuarios
+- Gestión de Promociones
 
-Los microservicios se comunicaran por medio del Broker **[rabbitmq](https://www.rabbitmq.com/)** usando **[REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)**, para hacer el desarrollo se usará **[python](https://www.python.org/)** y el framework **[flask](http://flask.pocoo.org/)** 
+Los microservicios se comunicaran por medio del Broker **[rabbitmq](https://www.rabbitmq.com/)** usando **[REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)**, para hacer el desarrollo se usará **[python](https://www.python.org/)** y el framework **[flask](http://flask.pocoo.org/)**
 
 
 
@@ -45,17 +45,17 @@ Recursos disponibles:
 
 - [/](https://jabonillabproyectocc2018.herokuapp.com/) : Es la raíz en la que se muestra status:OK en caso de que este levantado el servidor.
 - [/Productos](https://jabonillabproyectocc2018.herokuapp.com/productos): Hace exactamente lo mismo que la raíz, es una prueba que realice para comprobar si podía poner el mismo recurso en más de una ruta.
-- [/nuevoproducto/< nombre >/< ubicacion >](): Usada para agregar productos al Inventario 
-  
+- [/nuevoproducto/< nombre >/< ubicacion >](): Usada para agregar productos al Inventario
+
 ### Definición de la Infraestructura
 
 Tanto Heroku y Travis usan documentos de configuración para generar la infraestructura necesaria a continuación se describen los documentos principales
 
 Siguientes archivos:
 
-- [requirements.txt](https://github.com/jabonillab/ProyectoCC2018/blob/master/requirements.txt): En heroku se facilita usar Gunicorn, que es un servidor WSGI HTTP para Python y nos permite correr el servidor. 
+- [requirements.txt](https://github.com/jabonillab/ProyectoCC2018/blob/master/requirements.txt): En heroku se facilita usar Gunicorn, que es un servidor WSGI HTTP para Python y nos permite correr el servidor.
 - [database.yml](https://github.com/jabonillab/ProyectoCC2018/blob/master/database.yml): Para poder ejecutar las pruebas es necesario crear una base de datos temporal en travis en este documento especifico las credenciales de la base de datos temporal que se creara al momento de comenzar las prubas y se destruira al terminarlas
-- [Procfile](https://github.com/jabonillab/ProyectoCC2018/blob/master/Procfile): En este documento de especifica a Heroku el tipo de servidor y la aplicacion que debe desplegar, se usa gunicorn ya que permite administrar las peticiones simultaneas que la aplicación reciba. 
+- [Procfile](https://github.com/jabonillab/ProyectoCC2018/blob/master/Procfile): En este documento de especifica a Heroku el tipo de servidor y la aplicacion que debe desplegar, se usa gunicorn ya que permite administrar las peticiones simultaneas que la aplicación reciba.
 
 continuar en [Hito 2](/docs/Hitodos.md)
 
@@ -74,7 +74,14 @@ Toda la información sobre este hito se encuentra en
 
 MV2: 13.69.21.103
 
-Se ha creado un [script](./acopio.sh) donde se crear una MV en Azure con la imagen de la empresa [jetware](http://jetware.io) que esta compuesta por Ubuntu Server 16.04 LTS y postgresql 9.6. Además se prepara la imagen para poder acceder a ella vía http y se aprovisiona con un [playbook](./provision/ansible/aprovisionamientoazure.yml) de Ansible. Documentación sobre la automatización se encuentra en el siguiente [documento](./docs/Hitocuatro.md)
+Se ha creado un [script](./acopio.sh) donde se crear una MV en Azure con la imagen de la empresa [jetware](http://jetware.io) que está compuesta por Ubuntu Server 16.04 LTS y postgresql 9.6. Además se prepara la imagen para poder acceder a ella vía http y se aprovisiona con un [playbook](./provision/ansible/aprovisionamientoazure.yml) de Ansible. Documentación sobre la automatización se encuentra en el siguiente [documento](./docs/Hitocuatro.md)
 
+## Orquestación
+
+Se realiza la orquestación de la infraestructura usando la herramienta de orquestación Vagrant. 
+
+Despliegue Vagrant: 13.94.202.85
+
+Toda la información a este hito se encuentra en siguiente [documento](/docs/Hitocinco.md)
 
 
